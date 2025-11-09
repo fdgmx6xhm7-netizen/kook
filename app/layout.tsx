@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AdLink from "@/components/AdLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,10 +12,12 @@ export const metadata: Metadata = {
     default: "Kook - Bulletin Board",
     template: "%s | Kook",
   },
-  description: "A simple bulletin board site sharing reactions and discussions.",
+  description:
+    "A simple bulletin board site sharing reactions and discussions.",
   openGraph: {
     title: "Kook",
-    description: "A simple bulletin board site sharing reactions and discussions.",
+    description:
+      "A simple bulletin board site sharing reactions and discussions.",
     url: "https://kook.example.com",
     siteName: "Kook",
     images: [
@@ -30,7 +33,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Kook",
-    description: "A simple bulletin board site sharing reactions and discussions.",
+    description:
+      "A simple bulletin board site sharing reactions and discussions.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -51,14 +55,20 @@ export default function RootLayout({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "게시판 사이트",
-            "url": "https://example.com",
+            name: "게시판 사이트",
+            url: "https://example.com",
           })}
         </script>
       </head>
-      <body className={`${inter.className} bg-background text-text antialiased dark`}>
+      <body
+        className={`${inter.className} bg-background text-text antialiased dark`}
+      >
         <Header />
-        {children}
+        <div className="my-12">
+          <AdLink />
+          <div className="my-8">{children}</div>
+          <AdLink />
+        </div>
         <Footer />
       </body>
     </html>
