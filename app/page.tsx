@@ -1,3 +1,5 @@
+"use client";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
@@ -46,34 +48,34 @@ const posts = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post) => (
-          <Link href={`/post/${post.id}`} key={post.id}>
-            <Card className="border-primary shadow-neon hover:shadow-secondary transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-primary">{post.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col items-center">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={300}
-                  height={200}
-                  loading="lazy"
-                  className="w-[300px] mb-2"
-                />
-                <p>{post.content}</p>
-                {/* 내부 Link 제거: Read More */}
-              </CardContent>
-            </Card>
-          </Link>
+          <Card
+            key={post.id}
+            className="border-primary shadow-neon hover:shadow-secondary transition-shadow cursor-pointer"
+            onClick={() => router.push(`/post/${post.id}`)}
+          >
+            <CardHeader>
+              <CardTitle className="text-primary">{post.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={300}
+                height={200}
+                loading="lazy"
+                className="w-[300px] mb-2"
+              />
+              <p>{post.content}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
-      {/* Adsterra/PropellerAds 스크립트 위치: 여기에서 <Script> 태그 추가 준비 */}
-      <Script src="https://example.com/adsterra.js" strategy="lazyOnload" />
-      {/* 또는 PropellerAds 스크립트 */}
     </div>
   );
 }

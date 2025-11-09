@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Kook",
     description:
       "A simple bulletin board site sharing reactions and discussions.",
-    url: "https://kook.example.com",
+    url: "https://kook-one.vercel.app",
     siteName: "Kook",
     images: [
       {
