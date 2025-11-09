@@ -361,6 +361,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
         </CardHeader>
         <CardContent>
           {/* <Skeleton className="w-[600px] h-[400px] mb-2" /> */}
+          <div id="container-a5514b123fb0574fbffdc79e24a78b5f"></div>
           <Image
             src={post?.image || "/placeholder.jpg"}
             alt={post?.title || "placeholder"}
@@ -369,6 +370,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
             // loading="lazy"
             className="w-[600px] mb-2"
           />
+          <div id="container-a5514b123fb0574fbffdc79e24a78b5f"></div>
           <p className="whitespace-pre-line">{post?.content}</p>
         </CardContent>
       </Card>

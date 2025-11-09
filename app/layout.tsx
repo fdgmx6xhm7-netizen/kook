@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdLink from "@/components/AdLink";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,16 +50,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="en">
       <head>
-        <script type="application/ld+json">
+        <Script id="application/ld+json" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "게시판 사이트",
-            url: "https://example.com",
+            name: "Kook",
+            url: "https://kook-one.vercel.app/",
           })}
-        </script>
+        </Script>
+        <Script
+          type="text/javascript"
+          src="//pl28019608.effectivegatecpm.com/24/10/9c/24109c40f48069ccaa8d6493732cca89.js"
+        />
       </head>
       <body
         className={`${inter.className} bg-background text-text antialiased dark`}
@@ -70,6 +75,11 @@ export default function RootLayout({
           <AdLink />
         </div>
         <Footer />
+        <Script
+          async={true}
+          data-cfasync={false}
+          src="//pl28019662.effectivegatecpm.com/a5514b123fb0574fbffdc79e24a78b5f/invoke.js"
+        ></Script>
       </body>
     </html>
   );
